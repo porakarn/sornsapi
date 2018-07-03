@@ -1,0 +1,21 @@
+var mongoose = require('mongoose');
+
+const { Schema } = mongoose;
+
+var Job2Schema = mongoose.Schema({
+
+    job: String,
+    subject: String , 
+    // tags: [String]
+    // phone: { type: String },
+    // picture: String,
+    day: String,
+    status: String,
+    _creator: { type: Schema.ObjectId, ref: 'Agent'},
+   
+    // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
+})
+
+
+
+var Job2 = module.exports = mongoose.model('Job2', Job2Schema);
