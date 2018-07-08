@@ -10,7 +10,7 @@ var Job2Schema = mongoose.Schema({
     // phone: { type: String },
     // picture: String,
     day: String,
-    status: String,
+    status: {type: String, default: 'ว่าง'},
     _creator: { type: Schema.ObjectId, ref: 'Agent'},
     tutorid: { type: Schema.ObjectId, ref: 'Tutor2'}
 
