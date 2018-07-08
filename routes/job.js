@@ -29,6 +29,28 @@ router.post('/job/suggest', function (req, res) {
     })
 })
 
+router.patch('/job/update', function (req, res) {
+    Job2.findOne({
+        _id: req.body._id
+    }).update(req.body).then((users) => {
+        res.json(users)
+    }).catch((err) => {
+        res.send(err)
+    })
+
+})
+
+router.post('/job/delete', function (req, res) {
+
+Job2.remove({ _id: req.body._id }).then(() => {
+        res.json('succeed')
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
+ 
+
 
 
 router.get('/job/all', function (req, res) {
