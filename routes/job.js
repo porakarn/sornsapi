@@ -19,8 +19,8 @@ router.post('/job/create', function (req, res, next) {
 
 });
 
-router.get('/job/suggest', function (req, res) {
-    Job2.find({subject: 'ENG'}).then((posts) => {
+router.post('/job/suggest', function (req, res) {
+    Job2.find({subject: req.body.tag}).then((posts) => {
         res.json(posts)
         console.log(posts);
         
@@ -51,7 +51,8 @@ router.get('/job/all2', function (req, res) {
     })
 })
 
-router.get('/job/tutorown', function (req, res) {
+router.post('/job/tutorown', function (req, res) {
+    
     Job2.find({tutorid: req.body.tutorid}).then((posts) => {
         res.json(posts)
     }).catch((err) => {
