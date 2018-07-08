@@ -13,6 +13,8 @@ var usersRouter = require('./routes/users');
 var agentRouter = require('./routes/agent');
 var authRouter = require('./routes/auth');
 var jobRouter = require('./routes/job');
+var tutorRouter = require('./routes/tutor');
+
 
 
 
@@ -37,6 +39,8 @@ app.use('/users', usersRouter);
 app.use('/agent', agentRouter);
 app.use('/', authRouter);
 app.use('/', jobRouter);
+app.use('/', tutorRouter);
+
 
 
 

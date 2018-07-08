@@ -12,6 +12,8 @@ var Job2Schema = mongoose.Schema({
     day: String,
     status: String,
     _creator: { type: Schema.ObjectId, ref: 'Agent'},
+    tutorid: { type: Schema.ObjectId, ref: 'Tutor2'}
+
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
 })

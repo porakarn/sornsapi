@@ -2,14 +2,15 @@ var mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-var AgentSchema = mongoose.Schema({
+var Tutor2Schema = mongoose.Schema({
 
-    username: String,
     name: String , 
-    // phone: { type: String },
+    phone: { type: String },
     picture: String,
-    contactUrl: String,
+    profile: String,
     email: String,
+    subject: String,
+    tag: String
     // _creator: { type: Schema.ObjectId, ref: 'User'},
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
@@ -17,4 +18,4 @@ var AgentSchema = mongoose.Schema({
 
 
 
-var Agent = module.exports = mongoose.model('Agent', AgentSchema);
+var Tutor2 = module.exports = mongoose.model('Tutor2', Tutor2Schema);
