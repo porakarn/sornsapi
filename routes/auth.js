@@ -16,12 +16,13 @@ function generateToken(user) {
 router.post('/signup', function (req, res, next) {
 
     const agent = new Agent({
-        username: req.body.username,
+        name: req.body.name,
+        email: req.body.email
     
     });
 
      Agent.findOne({
-        username: req.body.username
+        name: req.body.name
     }, (err, existingUser) => {
         if (err) {
             return next(err);

@@ -28,6 +28,20 @@ router.post('/job/suggest', function (req, res) {
         res.send(err)
     })
 })
+// ยังไม่เสร็จ
+
+
+router.post('/agent/checkstatus', function (req, res) {
+    Job2.find({_creator: req.body._creator, status: req.body.status}).then((posts) => {
+        res.json(posts)
+        console.log(posts);
+        
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+
+//
 
 router.patch('/job/update', function (req, res) {
     Job2.findOne({
@@ -82,6 +96,13 @@ router.post('/job/tutorown', function (req, res) {
     })
 })
 
-
+router.post('/job/agentown', function (req, res) {
+    
+    Job2.find({_creator: req.body._creator}).then((posts) => {
+        res.json(posts)
+    }).catch((err) => {
+        res.send(err)
+    })
+})
 
 module.exports = router;

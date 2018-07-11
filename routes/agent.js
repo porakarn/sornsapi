@@ -21,7 +21,7 @@ router.post('/create', function (req, res, next) {
 
 router.patch('/update', function (req, res) {
     Agent.findOne({
-        username: req.body.username
+        name: req.body.name
     }).update(req.body).then((users) => {
         res.json(users)
     }).catch((err) => {
