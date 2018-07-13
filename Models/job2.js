@@ -1,19 +1,22 @@
 var mongoose = require('mongoose');
-
+var SubjectSchema = require('./subject')
 const { Schema } = mongoose;
 
 var Job2Schema = mongoose.Schema({
 
     job: String,
-    subject: String , 
+    subject: [String] , 
+    subjects: [SubjectSchema],
+    subjectss: [{}],
+
     // tags: [String]
     // phone: { type: String },
     // picture: String,
-    day: String,
+    day: [String],
     status: {type: String, default: 'ว่าง'},
     _creator: { type: Schema.ObjectId, ref: 'Agent'},
     tutorid: { type: Schema.ObjectId, ref: 'Tutor2'}
-
+    
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
 })

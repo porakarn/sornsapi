@@ -7,8 +7,98 @@ var Job2 = require('../Models/job2');
 /* GET home page. */
 
 // job populate creator
+
+  
+
+router.post('/multi', function (req, res) {   
+
+    if (req.body.subject.length == 0) {
+      Job2.find({day: req.body.day
+      }).then((posts) => {
+          console.log(posts)
+          res.json(posts)
+      }).catch((err) => {
+          res.send(err)
+      })
+    } else if (req.body.day.length == 0) {
+     Job2.find({subject: req.body.subject}).then((posts)=> {
+        console.log(posts)
+        res.json(posts)
+  }).catch((err) => {
+        res.send(err)
+    })
+    } else {
+        Job2.find({ $and: [{ subject: req.body.subject }, { day: req.body.day }] }).then((posts) => {
+        res.json(posts)
+        console.log(posts);
+        
+    }).catch((err) => {
+        res.send(err)
+    })
+    }   
+
+
+})
+
+
+router.post('/multi3', function (req, res) {
+
+    if (req.body.subject.length == 0) {
+        console.log(req.body.day);
+        
+        Job2.find({ day: { $in: req.body.day } }).then((posts) => {
+            console.log(posts)
+            res.json(posts)
+        }).catch((err) => {
+            res.send(err)
+        })
+    } else if (req.body.day.length == 0) {
+        Job2.find({ subject: { $in: req.body.subject } }).then((posts) => {
+            console.log(posts)
+            res.json(posts)
+        }).catch((err) => {
+            res.send(err)
+        })
+    } else {
+        Job2.find({
+            $and: [{
+               subject: { $in: req.body.subject }
+            }, {
+               day: { $in: req.body.day }
+            }]
+        }).then((posts) => {
+            res.json(posts)
+            console.log(posts);
+
+        }).catch((err) => {
+            res.send(err)
+        })
+    }
+
+
+})
+
+
+router.post('/multi2', function(req,res){
+console.log(req.body.subject);
+
+    Job2.find({subject: req.body.subject}).then((res)=> {
+ console.log(res)
+ res.json(res)
+    }).catch((err) => {
+        res.send(err)
+    })
+
+})
+
+
+
 router.post('/job/create', function (req, res, next) {
     var newJob = new Job2(req.body);
+    console.log(req.body);
+        console.log(newJob);
+
+        console.log('ss');
 
     newJob.save().then((newTest) => {
         res.json(newTest)
@@ -19,7 +109,52 @@ router.post('/job/create', function (req, res, next) {
 
 });
 
+router.post('/job/create2', function (req, res, next) {
+    var newJob = new Job2({ job: "journal", subject: "Thai", subjectss: ["blank", "red"] })
+
+    newJob.save().then((newTest) => {
+        res.json(newTest)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+
+});
+
+
+router.post('/job/nested', function (req, res) {
+
+const por = new Job2({ 
+    job: 'ddddjjjdd',
+    subjects :[{ subject: 'Thai'},{ subject: 'Thai6'}] 
+})
+
+por.save().then((user) => {
+        res.json(user)
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
+router.post('/job/nested2', function (req, res) {
+
+Job2.findOne({ 
+    job: 'dddddd',
+}).then((user)=> { 
+    user.subjects.push({subject: 'Thai2'})
+   return  user.save()
+}).then((user) => {
+        res.json(user)
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
+
+
 router.post('/job/suggest', function (req, res) {
+    console.log(req.body);
+    
     Job2.find({subject: req.body.tag}).then((posts) => {
         res.json(posts)
         console.log(posts);
@@ -62,6 +197,8 @@ Job2.remove({ _id: req.body._id }).then(() => {
         res.send(err)
     })
 });
+
+
 
  
 
