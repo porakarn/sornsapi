@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Agent = require('../Models/agent');
 var Tutor2 = require('../Models/tutor2');
+var Student = require('../Models/student');
+
 
 
 const jwt = require('jsonwebtoken');
@@ -104,6 +106,56 @@ router.post('/tutor/signup', function (req, res, next) {
     });
 
 })
+
+
+
+
+router.post('/student/login', function (req, res, next) {
+
+    const student = new Student({
+        name: req.body.name,
+        email: req.body.email,
+        picture : req.body.picture
+
+    });
+
+    Student.findOne({
+        name: req.body.name
+    }, (err, existingUser) => {
+        if (err) {
+            return next(err);
+        }
+        // Check if email is avaible
+        if (existingUser) {
+            // Save error message
+            // const errors = [];
+            // errors.push({
+            //     error: 'Email exists'
+            // });
+
+            // return res.status(400).send({ errors });
+            console.log('login')
+            return res.send({
+                user: existingUser.toJSON(),
+                token: generateToken(existingUser.toJSON())
+            });
+            // user.update(req.body)
+        }
+        student.save((err) => {
+            if (err) {
+                return next(err);
+            }
+            // Registred successfully
+            return res.send({
+                user: student.toJSON(),
+                token: generateToken(student.toJSON())
+            });
+        });
+    });
+
+})
+
+
 
 
 module.exports = router

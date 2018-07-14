@@ -10,10 +10,13 @@ var Tutor2Schema = mongoose.Schema({
     profile: String,
     email: String,
     subject: String,
-    tag: String
+    tag: String,
     // _creator: { type: Schema.ObjectId, ref: 'User'},
-   
-    // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
+    total_score : Number,
+    total_teach : Number,
+    unique_student : Number,
+    _review: [{ type: Schema.ObjectId, ref: 'Review'}],
+    arrayrating: [String]
 })
 
 

@@ -50,5 +50,23 @@ router.get('/user/profile', function (req, res) {
 
 })
 
+router.post('/user/profile2', function (req, res) {
+    Tutor2.findById(req.body.tutorid).populate({
+            path: '_review',
+            populate: {
+                path: 'studentid'
+                
+            
+            }
+        }).then((users) => {
+            console.log(users);
+            
+        res.json(users)
+    }).catch((err) => {
+        res.send(err)
+    })
+
+})
+
 
 module.exports = router;
