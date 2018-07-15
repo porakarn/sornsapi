@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 var AgentSchema = mongoose.Schema({
 
-    username: String,
+    pagename: String,
     name: String , 
     // phone: { type: String },
     picture: String,

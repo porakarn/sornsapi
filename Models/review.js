@@ -10,6 +10,8 @@ var ReviewSchema = mongoose.Schema({
     topic: String,
     studentid: { type: Schema.ObjectId, ref: 'Student'},
     tutorid: { type: Schema.ObjectId, ref: 'Tutor2'}
+}, {
+    timestamps: true
 })
 
 
