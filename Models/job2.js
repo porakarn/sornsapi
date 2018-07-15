@@ -19,6 +19,8 @@ var Job2Schema = mongoose.Schema({
     
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
+}, {
+    timestamps: true
 })
 
 
