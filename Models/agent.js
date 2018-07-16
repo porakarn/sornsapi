@@ -6,7 +6,7 @@ var AgentSchema = mongoose.Schema({
 
     pagename: String,
     name: String , 
-    // phone: { type: String },
+    contact: { type: String },
     picture: String,
     contactUrl: String,
     email: String,

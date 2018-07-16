@@ -200,12 +200,15 @@ Job2.remove({ _id: req.body._id }).then(() => {
 
 
 
- 
 
 
 
 router.get('/job/all', function (req, res) {
-    Job2.find({}).then((posts) => {
+    Job2.find({})
+        .populate({
+            path: '_creator'
+
+        }).then((posts) => {
         res.json(posts)
     }).catch((err) => {
         res.send(err)
