@@ -10,6 +10,7 @@ var AgentSchema = mongoose.Schema({
     picture: String,
     contactUrl: String,
     email: String,
+    line: String
     // _creator: { type: Schema.ObjectId, ref: 'User'},
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
