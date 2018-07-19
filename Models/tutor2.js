@@ -10,7 +10,7 @@ var Tutor2Schema = mongoose.Schema({
     profile: String,
     email: String,
     subject: String,
-    tag: String,
+    tag: [String],
     line: String,
     // _creator: { type: Schema.ObjectId, ref: 'User'},
     // total_score : Number,
