@@ -155,7 +155,7 @@ Job2.findOne({
 router.post('/job/suggest', function (req, res) {
     console.log(req.body);
     
-    Job2.find({subject: req.body.tag}).then((posts) => {
+    Job2.find({ subject: { $in: req.body.tag } }).then((posts) => {
         res.json(posts)
         console.log(posts);
         
