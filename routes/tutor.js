@@ -19,6 +19,19 @@ var Tutor2 = require('../Models/tutor2');
 
 // });
 
+router.post('/findtutorbyid', function (req, res) {
+    Tutor2.findOne({
+        _id: req.body.tutorid
+    }).then((users) => {
+        res.json(users)
+    }).catch((err) => {
+        res.send(err)
+    })
+
+})
+
+
+
 router.patch('/update', function (req, res) {
     Tutor2.findOne({
         name: req.body.name

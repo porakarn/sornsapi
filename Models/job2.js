@@ -16,8 +16,8 @@ var Job2Schema = mongoose.Schema({
     _creator: { type: Schema.ObjectId, ref: 'Agent'},
     tutorid: { type: Schema.ObjectId, ref: 'Tutor2'},
     contact: String,
-    contactUrl: String,
-    creator_name: String
+    creator_name: String,
+    line: String
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
 }, {
