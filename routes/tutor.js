@@ -52,7 +52,21 @@ router.patch('/update', function (req, res) {
 
 })
 
+router.patch('/update2', function (req, res) {
+    Tutor2.findOne({
+        _id: req.body._id
+    }).update(req.body).then(() => {
+        Tutor2.findOne({
+            _id: req.body._id
+        }).then((users)=> {
+        res.send(users)
+    }).catch((err) => {
+        res.send(err)
+    })
 
+})
+
+})
 
 router.patch('/update', function (req, res) {
     Tutor2.findOne({
