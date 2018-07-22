@@ -15,6 +15,7 @@ var authRouter = require('./routes/auth');
 var jobRouter = require('./routes/job');
 var tutorRouter = require('./routes/tutor');
 var reviewRouter = require('./routes/review');
+var sheetRouter = require('./routes/sheet');
 
 
 
@@ -42,6 +43,7 @@ app.use('/', authRouter);
 app.use('/', jobRouter);
 app.use('/', tutorRouter);
 app.use('/', reviewRouter);
+app.use('/', sheetRouter);
 
 
 
