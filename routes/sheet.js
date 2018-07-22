@@ -13,6 +13,18 @@ router.get('/sheet/all', function (req, res) {
     })
 })
 
+router.post('/sheet/seedetails', function (req, res) {
+    console.log(req.body._id);
+    
+    Sheet.findOne({_id:req.body._id}).then((posts) => {
+        res.json(posts)
+        console.log(posts);
+        
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+
 
 router.post('/sheet/create', function (req, res, next) {
     var newSheet = new Sheet(req.body);
@@ -44,7 +56,7 @@ router.post('/sheet/tutorown', function (req, res) {
 
 router.patch('/sheet/update', function (req, res) {
     Sheet.findOne({
-        name: req.body.name
+        _id: req.body._id
     }).update(req.body).then((users) => {
         res.json(users)
     }).catch((err) => {
