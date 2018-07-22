@@ -42,6 +42,8 @@ router.post('/findtutorbyidpop', function (req, res) {
 })
 
 router.patch('/update', function (req, res) {
+    console.log(req.body);
+    
     Tutor2.findOne({
         _id: req.body._id
     }).update(req.body).then((users) => {
