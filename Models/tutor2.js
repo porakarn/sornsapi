@@ -19,6 +19,8 @@ var Tutor2Schema = mongoose.Schema({
     // unique_student : Number,
     _review: [{ type: Schema.ObjectId, ref: 'Review'}],
     arrayrating: [String]
+}, {
+    timestamps: true
 })
 
 
