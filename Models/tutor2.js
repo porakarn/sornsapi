@@ -12,6 +12,7 @@ var Tutor2Schema = mongoose.Schema({
     subject: String,
     tag: [String],
     line: String,
+    fbid: String,
     canseesheet: { type: Boolean , default: false },
     // _creator: { type: Schema.ObjectId, ref: 'User'},
     // total_score : Number,
