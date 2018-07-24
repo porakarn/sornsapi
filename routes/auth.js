@@ -67,7 +67,8 @@ router.post('/tutor/signup', function (req, res, next) {
     const tutor2 = new Tutor2({
         name: req.body.name,
         picture: req.body.picture,
-        email: req.body.email
+        email: req.body.email,
+        fbid : req.body.fbid 
 
     });
 
