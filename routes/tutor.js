@@ -90,6 +90,15 @@ router.get('/tutor/all', function (req, res) {
     })
 })
 
+router.post('/tutor/filter', function (req, res) {
+    Tutor2.find({ tag: { $in: req.body.subject } }).sort({
+        createdAt: 'descending'
+    }).exec(function (err, posts) {
+
+        res.json(posts)
+    })
+})
+
 
 router.get('/user/profile', function (req, res) {
     Tutor2.findOne({
