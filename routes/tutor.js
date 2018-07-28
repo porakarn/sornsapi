@@ -82,10 +82,11 @@ router.patch('/update', function (req, res) {
 })
 
 router.get('/tutor/all', function (req, res) {
-    Tutor2.find({}).then((posts) => {
+    Tutor2.find({}).sort({
+        createdAt: 'descending'
+    }).exec(function (err, posts) {
+
         res.json(posts)
-    }).catch((err) => {
-        res.send(err)
     })
 })
 

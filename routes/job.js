@@ -155,12 +155,11 @@ Job2.findOne({
 router.post('/job/suggest', function (req, res) {
     console.log(req.body);
     
-    Job2.find({ subject: { $in: req.body.tag } }).then((posts) => {
+    Job2.find({ subject: { $in: req.body.tag } }).sort({
+            createdAt : 'descending'
+        }).exec(function (err, posts) {
+                  
         res.json(posts)
-        console.log(posts);
-        
-    }).catch((err) => {
-        res.send(err)
     })
 })
 // ยังไม่เสร็จ
@@ -204,10 +203,11 @@ Job2.remove({ _id: req.body._id }).then(() => {
 
 
 router.get('/job/all', function (req, res) {
-    Job2.find({}).then((posts) => {
+    Job2.find({}).sort({
+            createdAt : 'descending'
+        }).exec(function (err, posts) {
+                  
         res.json(posts)
-    }).catch((err) => {
-        res.send(err)
     })
 })
 
