@@ -117,7 +117,7 @@ router.post('/student/login', function (req, res, next) {
         name: req.body.name,
         email: req.body.email,
         picture : req.body.picture,
-         fbid: : req.body.fbid
+         fbid:  req.body.fbid
     });
 
     Student.findOne({
