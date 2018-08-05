@@ -116,8 +116,8 @@ router.post('/student/login', function (req, res, next) {
     const student = new Student({
         name: req.body.name,
         email: req.body.email,
-        picture : req.body.picture
-
+        picture : req.body.picture,
+         fbid: : req.body.fbid
     });
 
     Student.findOne({
