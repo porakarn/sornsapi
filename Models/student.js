@@ -9,6 +9,7 @@ var StudentSchema = mongoose.Schema({
     picture: String,
     // profile: String,
     email: String,
+    latestreview : String ,
     // subject: String,
     // tag: String
     // _creator: { type: Schema.ObjectId, ref: 'User'},

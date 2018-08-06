@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Tutor2 = require('../Models/tutor2');
-
+var Stat = require('../Models/Stat');
 /* GET home page. */
 // router.get('/c', function (req, res, next) {
 //     res.send('hi');
@@ -18,6 +18,23 @@ var Tutor2 = require('../Models/tutor2');
 //     })
 
 // });
+
+router.post('/stat', function (req, res, next) {
+    var newStat = new Stat(req.body);
+    console.log(req.body);
+        console.log(newStat);
+
+        console.log('ss');
+
+    newStat.save().then((newTest) => {
+        res.json(newTest)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+
+});
+
 
 router.post('/findtutorbyid', function (req, res) {
     Tutor2.findOne({
