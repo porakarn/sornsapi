@@ -18,6 +18,7 @@ var Tutor2Schema = mongoose.Schema({
     // total_score : Number,
     // total_teach : Number,
     // unique_student : Number,
+    reviewscore: [Number],
     _review: [{ type: Schema.ObjectId, ref: 'Review'}],
     arrayrating: [String]
 }, {
