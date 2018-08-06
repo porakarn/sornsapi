@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var SubjectSchema = require('./subject')
 const { Schema } = mongoose;
 
 var StatSchema = mongoose.Schema({

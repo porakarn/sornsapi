@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Tutor2 = require('../Models/tutor2');
-var Stat = require('../Models/Stat');
+var Stat = require('../Models/stat');
 /* GET home page. */
 // router.get('/c', function (req, res, next) {
 //     res.send('hi');
