@@ -197,6 +197,46 @@ Job2.remove({ _id: req.body._id }).then(() => {
     })
 });
 
+router.post('/job/try', function (req, res) {
+Job2.updateMany({
+        }, {
+    $set: {
+        "lastname": "alier",
+    }
+}).then((users) => {
+    res.json(users)
+}).catch((err) => {
+    res.send(err)
+})
+
+})
+
+// router.post('/job/try2', function (req, res) {
+   
+//    Job2.update({job : req.body.job}, {  $set: {
+//         job_length:  req.body.job.length,
+//     }}).then((users) => {
+//     res.json(users)
+// }).catch((err) => {
+//     res.send(err)
+// })
+
+// // Job2.find(function (err, devices) {
+// //     devices.forEach(function (device) {
+// //         console.log(device._id);
+// //                 console.log(device.job);
+// //                 console.log(device);
+                
+// //         console.log(device.job.length);
+// //         Job2.update({}, {  $set: {
+// //         job_length: 54,
+// //     }})
+// //     })
+// // })
+
+// })
+
+
 
 
 

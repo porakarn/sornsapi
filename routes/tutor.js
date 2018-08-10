@@ -19,6 +19,25 @@ var Stat = require('../Models/stat');
 
 // });
 
+
+router.post('/tutor/try2', function (req, res) {
+   
+Tutor2.update({_id : req.body._id}, {  $set: {
+            profile_length: req.body.profile.length,
+    }}).then((users) => {
+    res.json(users)
+}).catch((err) => {
+    res.send(err)
+})
+
+
+
+
+
+
+
+})
+
 router.post('/stat', function (req, res, next) {
     var newStat = new Stat(req.body);
     console.log(req.body);
@@ -98,14 +117,46 @@ router.patch('/update', function (req, res) {
 
 })
 
+// router.get('/tutor/all', function (req, res) {
+//     Tutor2.find({}).sort({
+//         createdAt: 'descending'
+//     }).exec(function (err, posts) {
+
+//         res.json(posts)
+//     })
+// })
+
 router.get('/tutor/all', function (req, res) {
     Tutor2.find({}).sort({
-        createdAt: 'descending'
-    }).exec(function (err, posts) {
+            "reviewscore": -1,
+            "profile_length": -1,
+        }).exec(function (err, posts) {
 
         res.json(posts)
     })
 })
+
+
+// Post.find({})
+//     .sort({'data.start_date.year': 1,
+//            'data.start_date.month': 1,
+//            'data.start_date.day': 1,
+//            'data.start_date.hour': 1,
+//            'data.start_date.minute': 1
+//           })
+//      .exec(function(err, result){
+// });
+
+
+
+router.get('/tutor/allsort', function(req, res){
+    Tutor2.find().sort({"reviewscore":-1}).limit(40).exec(function (err, posts) {
+
+        res.json(posts)
+    })
+  
+})
+
 
 router.post('/tutor/filter', function (req, res) {
     Tutor2.find({ tag: { $in: req.body.subject } }).sort({

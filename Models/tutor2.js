@@ -8,6 +8,7 @@ var Tutor2Schema = mongoose.Schema({
     phone: { type: String },
     picture: String,
     profile: String,
+    profile_length : {type: Number, default: 0},
     email: String,
     subject: String,
     tag: [String],

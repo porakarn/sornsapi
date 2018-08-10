@@ -52,6 +52,8 @@ router.post('/findagentjob', function (req, res) {
 
 
 router.patch('/update', function (req, res) {
+    console.log(req.body);
+    
     Agent.findOne({
         name: req.body.name
     }).update(req.body).then((users) => {
