@@ -160,8 +160,9 @@ router.get('/tutor/allsort', function(req, res){
 
 router.post('/tutor/filter', function (req, res) {
     Tutor2.find({ tag: { $in: req.body.subject } }).sort({
-        createdAt: 'descending'
-    }).exec(function (err, posts) {
+            "reviewscore": -1,
+            "profile_length": -1,
+        }).exec(function (err, posts) {
 
         res.json(posts)
     })
