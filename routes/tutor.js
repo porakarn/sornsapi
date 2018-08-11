@@ -192,10 +192,7 @@ router.post('/user/profile2', function (req, res) {
             console.log(users);
             
         res.json(users)
-Tutor2.update(
-   { tutorid: req.body.tutorid },
-   { $inc: { view: 1 } }
-)
+
         
     }).catch((err) => {
         res.send(err)
@@ -203,5 +200,24 @@ Tutor2.update(
 
 })
 
+
+router.post('/user/profile3', function (req, res) {
+
+Tutor2.update(
+   { tutorid: req.body.tutorid },
+   { $inc: { view: 1 } }
+).then((users) => {
+    console.log(users);
+
+    res.json(users)
+
+
+}).catch((err) => {
+    res.send(err)
+})
+
+
+
+})
 
 module.exports = router;
