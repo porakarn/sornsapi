@@ -169,7 +169,7 @@ router.post('/tutor/filter', function (req, res) {
 })
 
 
-router.get('/user/profile', function (req, res) {
+router.post('/user/profile', function (req, res) {
     Tutor2.findOne({
         name: req.body.name
     }).then((users) => {
