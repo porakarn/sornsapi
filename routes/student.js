@@ -128,7 +128,7 @@ router.patch('/update', function (req, res) {
 
 
 
-router.get('/user/profile', function (req, res) {
+router.post('/student/profile', function (req, res) {
     Student.findOne({
         name: req.body.name
     }).then((users) => {
