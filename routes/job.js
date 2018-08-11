@@ -272,6 +272,18 @@ router.post('/job/tutorown', function (req, res) {
     })
 })
 
+router.post('/job/studentown', function (req, res) {
+
+    Job2.find({
+        _creator: req.body.tutorid
+    }).then((posts) => {
+        res.json(posts)
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+
+
 router.post('/job/agentown', function (req, res) {
     
     Job2.find({_creator: req.body._creator}).then((posts) => {

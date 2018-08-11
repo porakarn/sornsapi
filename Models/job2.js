@@ -10,7 +10,7 @@ var Job2Schema = mongoose.Schema({
 
     // tags: [String]
     // phone: { type: String },
-    // picture: String,
+    picture: String,
     day: [String],
     status: {type: String, default: 'ว่าง'},
     _creator: { type: Schema.ObjectId, ref: 'Agent'},
@@ -19,7 +19,8 @@ var Job2Schema = mongoose.Schema({
     creator_name: String,
     line: String,
     lastname : String ,
-    job_length : Number 
+    job_length : Number,
+    is_student : String,
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
 }, {
