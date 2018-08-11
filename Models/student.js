@@ -11,7 +11,8 @@ var StudentSchema = mongoose.Schema({
     email: String,
     latestreview : String ,
     gender: String,
-    parent_or_student: String
+    parent_or_student: String,
+    line: String,
     // _creator: { type: Schema.ObjectId, ref: 'User'},
    
     // _comments: [{ type: Schema.ObjectId, ref: 'Comment'}]
