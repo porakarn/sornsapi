@@ -13,7 +13,7 @@ router.post('/review', function (req, res, next) {
 
 
 // we need to find tutor to refer to which tutor 
-Tutor2.findOne(name: req.body.name).then((res1) => {
+Tutor2.findOne({name: req.body.name}).then((res1) => {
 res1.reviewscore.push(req.body.rating)    
 res1._review.push(newreview)
  res1.save()
