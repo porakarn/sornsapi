@@ -192,6 +192,11 @@ router.post('/user/profile2', function (req, res) {
             console.log(users);
             
         res.json(users)
+Tutor2.update(
+   { tutorid: req.body.tutorid },
+   { $inc: { view: 1 } }
+)
+        
     }).catch((err) => {
         res.send(err)
     })
