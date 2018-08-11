@@ -202,9 +202,10 @@ router.post('/user/profile2', function (req, res) {
 
 
 router.post('/user/profile3', function (req, res) {
+console.log(req.body.tutorid);
 
 Tutor2.update(
-   { tutorid: req.body.tutorid },
+   { _id: req.body.tutorid },
    { $inc: { view: 1 } }
 ).then((users) => {
     console.log(users);
